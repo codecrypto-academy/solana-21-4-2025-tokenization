@@ -5,53 +5,45 @@ Este proyecto implementa un sistema de bonos de deuda en la blockchain de Solana
 ## Descripción del Proyecto
 
 El proyecto permite la emisión y compra de bonos de deuda con las siguientes características:
-- Bonos a N años
-- Cupón anual fijo
+
+- Emision
+- Vencimiento
+- Nominal
+- Pago interes: Anual | Anual
+- Tipo de interés: Fijo 
+- Cupón: porcentaje
 - Devolución al vencimiento
 - Compra mediante la stablecoin EuroCoin
 
 ## Fases del Proyecto
 
-### Fase 1: Desarrollo de Smart Contracts
-- Creación del token EuroCoin (stablecoin)
+### Fase 1: Desarrollo del Script de Prueba.
+
+- Creacion de wallet (emisor EuroCC, emisor BonoDeuda, adquirente1, adquirente2)
+- Airdrop de SOL a las cuentas necesarias
+- Creación del token EuroCC (stablecoin)
+- Airdrop de EuroCC a la wallet emisor, adquirente1 y adquirente2
 - Creación del token BonoDeuda
-- Implementación de la lógica de emisión y compra de bonos
+- Compra de tokens BonoDeuda con la stablecoin EuroCC (typescript)
+- Transferencia de tokens BonoDeuda a otras cuentas (typescript)
 
-### Fase 2: Desarrollo de la Aplicación Web
-- Interfaz de usuario con Next.js
-- Página principal promocionando los bonos disponibles
-- Funcionalidad de compra de bonos usando EuroCoin
-- Gestión de cartera de bonos para los usuarios
+### Fase 2: Desarrollo de la Aplicación Web para la emisión y compra de bonos usando un MCP server.
+- El mcp server debe permitir:
+    - Crear bonos
+    - Comprar bonos
+    - Transferencias de bonos entre wallets
+    - Consulta de bonos y saldo de EuroCC
+    - Consulta de bonos y saldo de EuroCC
+    
 
-### Fase 3: Implementación de Funcionalidades Avanzadas
-- Mercado secundario para la compra/venta de bonos
-- Cálculo automático de intereses y pagos de cupones
-- Dashboard para seguimiento de inversiones
 
-## Estructura Técnica
+## Arquitectura del proyecto
 
-El proyecto utiliza:
-- Solana para la blockchain
-- Anchor Framework para el desarrollo de programas
-- Next.js para el frontend
-- Wallet Adapter para la integración de carteras
+### Tecnologias usadas
 
-## Script de Inicialización
-
-El proyecto incluye un script que automatiza:
-1. Creación de cuentas emisoras para EuroCoin y BonoDeuda
-2. Creación de los tokens
-3. Airdrop de SOL a las cuentas necesarias
-4. Airdrop inicial de EuroCoin a cuentas de prueba
-5. Emisión inicial de BonoDeuda
-
-## Cómo Empezar
-
-1. Clonar el repositorio
-2. Instalar dependencias
-3. Ejecutar el script de inicialización
-4. Iniciar la aplicación web
-
-## Documentación Técnica
-
-La documentación detallada de los smart contracts y la aplicación web se encuentra en la carpeta `/docs`.
+- Solana
+    - Solana Cli
+    - Solana Test Validator
+    - Spl-token
+    - Anchor
+- Next.js en Typescript con Shadcn UI
